@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LazyCoder || Sumit</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom styles */
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #b87333, #ffcc66); /* Gradient copper */
+      margin: 0;
+      padding: 0;
+      padding-top: 60px; /* Add padding to account for the fixed navbar */
+    }
+
+    nav {
+      position: fixed; /* Fix the navbar to the top */
+      top: 0;
+      left: 0;
+      width: 250px; /* Width of the vertical navbar */
+      height: 100%;
+      background: #343a40; /* Dark background for navbar */
+      color: #fff;
+      z-index: 1000; /* Ensure navbar is on top of other content */
+    }
+
+    .jumbotron-container {
+      margin-left: 250px; /* Offset the content by the width of the navbar */
+      padding: 20px;
+    }
+
+    .jumbotron {
+      background: linear-gradient(135deg, #ffd700, #ffb84d); /* Gradient mango */
+      color: #333;
+      padding: 4rem 2rem;
+      margin: 20px auto; /* Center the jumbotron */
+      text-align: center;
+      border-radius: 10px; /* Smaller rounded corners */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+      max-width: calc(100% - 40px); /* Full width within the container, adjusting for margins */
+      border: 5px solid; /* Reduced border width */
+      border-image: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet) 1;
+      box-sizing: border-box; /* Include border in the element's total width */
+      z-index: 2000; /* Ensure jumbotron is above navbar */
+      position: relative; /* Ensure z-index is effective */
+    }
+
+    .alert {
+      background-color: #28a745;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin: 20px auto; /* Center the alert */
+      max-width: calc(100% - 270px); /* Full width minus navbar width */
+      border-radius: 10px;
+      border: 5px solid; /* Reduced border width */
+      border-image: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet) 1;
+      z-index: 2000; /* Ensure alert is above navbar */
+      position: relative; /* Ensure z-index is effective */
+    }
+
+    .footer {
+      background-color: #343a40;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+      position: relative; /* Ensure the footer is relative */
+      bottom: 0;
+      width: 100%;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .jumbotron-container {
+        margin-left: 0; /* No offset for small screens */
+        padding: 20px;
+      }
+
+      .jumbotron {
+        padding: 2rem 1rem;
+        max-width: 95%;
+        border-radius: 8px; /* Slightly less rounded corners on smaller screens */
+        border-width: 3px; /* Smaller border width */
+      }
+
+      .jumbotron h1 {
+        font-size: 2.5rem;
+      }
+
+      .jumbotron p {
+        font-size: 1.2rem;
+      }
+
+      .btn-primary {
+        padding: 0.5rem 1.5rem;
+        font-size: 1rem;
+      }
+
+      .alert {
+        max-width: 95%; /* Adjust width for small screens */
+        margin: 20px auto;
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  {% include "hospital/navbar.html" %}
+
+  <!-- Jumbotron Container -->
+  <div class="jumbotron-container">
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1 class="display-4">Hello</h1>
+        <p class="lead">A service dedicated to Hospital Admins, Doctors, and Patients.</p>
+        <hr class="my-4">
+        <p>Explore our website.</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="/" role="button">HOME</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- About Us alert -->
+    <div class="alert alert-success" role="alert">
+      <h3 class="mb-0">About Us!</h3>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  {% include "hospital/footer.html" %}
+
+  <!-- Developer info -->
+  <footer class="footer">
+    <div class="container">
+      <p class="text-muted mb-0">Developed By: Kanigiri Siva Sai Narayana</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

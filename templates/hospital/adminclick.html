@@ -1,0 +1,95 @@
+{% extends 'hospital/homebase.html' %}
+<!--
+developed By : Sumit Kumar
+facebook : fb.com/sumit.luv
+youtube : youtube.com/lazycoders
+-->
+{% block content %}
+
+<style>
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  body {
+    background-color: #0072FF; /* Blue background */
+  }
+
+  .jumbotron {
+    background: linear-gradient(135deg, #00C9FF, #92FE9D);
+    color: white;
+    text-align: center;
+    margin-bottom: 0;
+    padding: 4rem 2rem;
+    border-radius: 0.5rem;
+    animation: fadeIn 1s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid black; /* Black border */
+  }
+
+  .jumbotron .display-4 {
+    font-weight: bold;
+    font-size: 3rem;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+
+  .jumbotron p.lead {
+    font-size: 1.25rem;
+    animation: fadeIn 2s ease-in-out;
+  }
+
+  .jumbotron hr.my-4 {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    animation: fadeIn 2.5s ease-in-out;
+  }
+
+  .jumbotron .btn-primary {
+    background-color: #FF8C00;
+    border: none;
+    font-size: 1.25rem;
+    padding: 0.75rem 1.5rem;
+    transition: background-color 0.3s, transform 0.3s;
+    animation: fadeIn 3s ease-in-out;
+  }
+
+  .jumbotron .btn-primary:hover {
+    background-color: #FF4500;
+    transform: scale(1.05);
+  }
+
+  .jumbotron .btn-primary:focus {
+    animation: pulse 1s infinite;
+  }
+</style>
+
+<div class="jumbotron">
+  <h1 class="display-4">Hello, Admin</h1>
+  <p class="lead">Welcome to Hospital Management System.</p>
+  <hr class="my-4">
+  <p>You can access various features after Login/SignUp.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="/adminsignup" role="button">SignUp</a>
+    <a class="btn btn-primary btn-lg" href="/adminlogin" role="button">Login</a>
+  </p>
+</div>
+
+{% endblock content %}

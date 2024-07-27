@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Hospital Management System</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="{% static '/style.css' %}">
+
+  <style media="screen">
+    body {
+      padding-left: 240px;
+      background: linear-gradient(to right, #8e2de2, #4a00e0); /* Updated background gradient */
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+    }
+
+    main {
+      position: relative;
+      height: 100vh;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .menu {
+      background: #37d5d6; /* Updated sidebar background color */
+      height: 100vh;
+      width: 240px;
+      position: fixed;
+      top: 0px;
+      left: 0;
+      z-index: 5;
+      outline: none;
+      animation: slideInLeft 1s ease-in-out;
+    }
+
+    .menu .avatar {
+      background: rgba(0, 0, 0, 0.1);
+      padding: 2em 0.5em;
+      text-align: center;
+    }
+
+    .menu .avatar img {
+      width: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid #ffea92;
+      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
+    }
+
+    .menu .avatar h2 {
+      font-weight: normal;
+      margin-bottom: 0;
+    }
+
+    .menu ul {
+      list-style: none;
+      padding: 0.5em 0;
+      margin: 0;
+    }
+
+    .menu ul li {
+      padding: 0.5em 1em 0.5em 3em;
+      font-size: 0.95em;
+      font-weight: regular;
+      background-repeat: no-repeat;
+      background-position: left 15px center;
+      background-size: auto 20px;
+      transition: all 0.15s linear;
+      cursor: pointer;
+      border-left: 5px solid #4a00e0; /* Updated border style */
+    }
+
+    .menu ul li.icon-dashboard {
+      background-image: url("http://www.entypo.com/images//gauge.svg");
+    }
+
+    .menu ul li.icon-customers {
+      background-image: url("http://www.entypo.com/images//briefcase.svg");
+    }
+
+    .menu ul li.icon-users {
+      background-image: url("http://www.entypo.com/images//users.svg");
+    }
+
+    .menu ul li.icon-calendar {
+      background-image: url("http://www.entypo.com/images//calendar.svg");
+    }
+
+    .menu ul li:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+      border-left-color: #6629b7; /* Updated hover effect */
+    }
+
+    .menu ul li:focus {
+      outline: none;
+    }
+
+    @keyframes slideInLeft {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    a:link {
+      text-decoration: none;
+      color: white; /* Updated link color */
+    }
+
+    a:hover {
+      color: #ffea92; /* Updated hover color */
+    }
+
+    footer {
+      padding: 20px 0;
+      background-color: #333; /* Updated footer background */
+      color: white;
+      text-align: center;
+    }
+
+    .social-icons a {
+      color: white;
+      font-size: 20px;
+      margin: 0 10px;
+    }
+
+    .social-icons a:hover {
+      color: #ffea92;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="menu" tabindex="0">
+    <div class="smartphone-menu-trigger"></div>
+    <header class="avatar">
+      <img src="{% static "images/adminpropic.png" %}" />
+      <br><br>
+      <h6>Admin</h6>
+      <h2>{{ request.user.first_name }}</h2>
+    </header>
+    <ul>
+      <li tabindex="0" class="icon-dashboard"> <a href="/admin-dashboard"><span>Dashboard</span></a> </li>
+      <li tabindex="0" class="icon-customers"> <a href="/admin-doctor"><span>Doctor</span></a></li>
+      <li tabindex="0" class="icon-users"> <a href="/admin-patient"><span>Patient</span></a></li>
+      <li tabindex="0" class="icon-calendar"> <a href="/admin-appointment"><span>Appointment</span></a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="bs-example">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background:#4a00e0;">
+        <a href="/admin-dashboard" class="navbar-brand">HOSPITAL MANAGEMENT</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+          <div class="navbar-nav ml-auto">
+            <a href="/logout" class="nav-item nav-link">Logout</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <br><br>
+    {% block content %}
+    {% endblock content %}
+    <br><br><br><br>
+    <footer>
+      <div class="social-icons">
+        <a href="https://facebook.com/sumit.luv/" class="fa fa-facebook"></a>
+        <a href="https://api.whatsapp.com/send?phone=919572181024&text=Hello%20Sumit.%0d%0aHow%20are%20you%20%3f%0d%0aI%20came%20from%20your%20website.&source=&data=#" class="fa fa-whatsapp"></a>
+        <a href="https://instagram.com/sumit.luv" class="fa fa-instagram"></a>
+        <a href="https://twitter.com/sumitkumar1503" class="fa fa-twitter"></a>
+      </div>
+      <br>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+            <p>Made in India <br>
+              Copyright &copy; 2023 Kanigiri Siva Sai Narayana </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+  <!--
+  developed By : Sumit Kumar
+  facebook : fb.com/sumit.luv
+  youtube : youtube.com/lazycoders
+  -->
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+{% extends 'hospital/admin_base.html' %}
+{% load static %}
+{% block content %}
+{% include 'hospital/admin_dashboard_cards.html' %}
+<br><br><br><br>
+<div class="container">
+  <div class="row">
+    <div class="panel panel-primary col-md-5" style="margin-left:2%; animation: fadeInUp 1s ease-in-out;">
+      <div class="panel-heading" style="text-align:center; background-color: #ff6961;">
+        <h6 class="panel-title">Recent Doctors</h6>
+      </div>
+      <table class="table table-hover" id="dev-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Mobile</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        {% for d in doctors %}
+        <tr>
+          <td>{{ d.get_name }}</td>
+          <td>{{ d.department }}</td>
+          <td>{{ d.mobile }}</td>
+          {% if d.status %}
+          <td><span class="badge badge-primary">Permanent</span></td>
+          {% else %}
+          <td><span class="badge badge-success">On Hold</span></td>
+          {% endif %}
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+
+    <div class="panel panel-primary col-md-5" style="margin-left:5%; animation: fadeInUp 1.2s ease-in-out;">
+      <div class="panel-heading" style="text-align:center; background-color: #ff6961;">
+        <h6 class="panel-title">Recent Patients</h6>
+      </div>
+      <table class="table table-hover" id="dev-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Symptoms</th>
+            <th>Mobile</th>
+            <th>Address</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        {% for p in patients %}
+        <tr>
+          <td>{{ p.get_name }}</td>
+          <td>{{ p.symptoms }}</td>
+          <td>{{ p.mobile }}</td>
+          <td>{{ p.address }}</td>
+          {% if p.status %}
+          <td><span class="badge badge-primary">Admitted</span></td>
+          {% else %}
+          <td><span class="badge badge-success">On Hold</span></td>
+          {% endif %}
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+
+<style>
+  body {
+    background-color: #f9d423; /* Citrus peel background color */
+    font-family: 'Arial', sans-serif;
+  }
+
+  .panel {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    animation: fadeInUp 1.5s ease-in-out;
+  }
+
+  .panel-heading {
+    background-color: #ff6961;
+    color: #fff;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .table {
+    margin-bottom: 0;
+  }
+
+  .badge {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<!--
+developed By : Sumit Kumar
+facebook : fb.com/sumit.luv
+youtube : youtube.com/lazycoders
+-->
+
+{% endblock content %}

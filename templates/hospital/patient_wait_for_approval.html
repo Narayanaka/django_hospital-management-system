@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>LazyCoder || Sumit</title>
+
+  <style media="screen">
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #ff6ec4, #7873f5);
+      color: #333;
+    }
+
+    .jumbotron {
+      margin: 20px auto;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      max-width: 700px;
+      text-align: center;
+      border: 10px solid;
+      border-image: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet) 1;
+    }
+
+    .jumbotron h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      background: linear-gradient(45deg, #ff6ec4, #7873f5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+    }
+
+    .jumbotron h2 {
+      font-size: 1.5em;
+      margin-bottom: 15px;
+      color: #444;
+    }
+
+    .jumbotron h3 {
+      font-size: 1.2em;
+      margin-bottom: 15px;
+      color: #666;
+    }
+
+    .lead {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    .update-note {
+      font-size: 1.2em;
+      margin: 20px 0;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .btn-primary {
+      background-color: #7873f5;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      border-radius: 5px;
+      transition: background-color 0.3s, transform 0.3s;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background-color: #ff6ec4;
+      transform: scale(1.05);
+    }
+
+    /* Centering the button */
+    .centered-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    /* Navbar border styling */
+    nav {
+      border: 2px solid #333;
+      padding: 10px;
+      border-radius: 8px;
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  {% include "hospital/navbar.html" %}
+  <div class="jumbotron">
+    <h1>Hello {{request.user.first_name}}</h1>
+    <h2>Account Status</h2>
+    <h3>Your account is not approved yet.</h3>
+    <p class="lead">Our team is reviewing your profile. Soon your account will be confirmed!</p>
+    <hr class="my-4">
+    <p class="update-note">Check back later for updates.</p>
+    <div class="centered-button">
+      <a class="btn btn-primary btn-lg" href="/logout" role="button">Logout For Now</a>
+    </div>
+  </div>
+  {% include "hospital/footer.html" %}
+</body>
+<!--
+developed By : sumit kumar
+facebook : fb.com/sumit.luv
+youtube : youtube.com/lazycoders
+-->
+</html>

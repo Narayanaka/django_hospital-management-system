@@ -1,0 +1,155 @@
+{% extends 'hospital/admin_base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      font-family: 'Arial', sans-serif;
+      padding-top: 50px; /* Adjust according to your layout */
+    }
+
+    .order-card {
+      color: #fff;
+      border-radius: 5px;
+      -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4, 26, 55, 0.16);
+      box-shadow: 0 1px 2.94px 0.06px rgba(4, 26, 55, 0.16);
+      border: none;
+      margin-bottom: 30px;
+      -webkit-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .bg-c-blue {
+      background: linear-gradient(45deg, #4099ff, #73b4ff);
+    }
+
+    .bg-c-green {
+      background: linear-gradient(45deg, #2ed8b6, #59e0c5);
+    }
+
+    .bg-c-yellow {
+      background: linear-gradient(45deg, #FFB64D, #ffcb80);
+    }
+
+    .bg-c-pink {
+      background: linear-gradient(45deg, #FF5370, #ff869a);
+    }
+
+    .card-block {
+      padding: 25px;
+      text-align: center;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .order-card:hover .card-block {
+      transform: translateY(-5px);
+    }
+
+    .order-card:hover {
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .order-card h6 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .order-card i {
+      font-size: 3rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-xl-3">
+        <div class="card bg-c-blue order-card">
+          <div class="card-block">
+            <a href="/admin-view-doctor">
+              <h6 class="m-b-20">Doctor Record</h6>
+            </a>
+            <h2><i class="fas fa-user-nurse"></i></h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-xl-3">
+        <div class="card bg-c-green order-card">
+          <div class="card-block">
+            <a href="/admin-add-doctor">
+              <h6 class="m-b-20">Register Doctor</h6>
+            </a>
+            <h2><i class="fas fa-user-plus"></i></h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-xl-3">
+        <div class="card bg-c-yellow order-card">
+          <div class="card-block">
+            <a href="/admin-approve-doctor">
+              <h6 class="m-b-20">Approve Doctor</h6>
+            </a>
+            <h2><i class="fas fa-check-circle"></i></h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-xl-3">
+        <div class="card bg-c-pink order-card">
+          <div class="card-block">
+            <a href="/admin-view-doctor-specialisation">
+              <h6 class="m-b-20">Doctor Specialisation</h6>
+            </a>
+            <h2><i class="fas fa-user-md"></i></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <div style="color: #ffffff;" class="wow fadeInUp footer-copyright">
+            <p>Made in India <br> Copyright &copy; 2023 Kanigiri Siva Sai Narayana </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    $(document).ready(function () {
+      $(".order-card").hover(
+        function () {
+          $(this).addClass('shadow-lg').css('cursor', 'pointer');
+        },
+        function () {
+          $(this).removeClass('shadow-lg');
+        }
+      );
+    });
+  </script>
+</body>
+
+</html>
+{% endblock content %}
